@@ -1,4 +1,4 @@
-package com.mycompany.easycondows.easycondows.condominium.model;
+package com.mycompany.easycondows.condominium.model;
 
 
 import javax.persistence.*;
@@ -9,25 +9,38 @@ public class Condominium {
 
     @Id
     @GeneratedValue
-    public Long id;
+    private Long id;
 
     @NotNull
-    public String name;
+    @Column(unique = true)
+    private String name;
 
     @NotNull
-    public String street;
+    private String street;
 
     @NotNull
-    public String neighborhood;
+    private String neighborhood;
 
     @NotNull
-    public String number;
+    private String number;
 
     @NotNull
-    public String zipCode;
+    private String city;
 
     @NotNull
-    public Boolean active;
+    private String state;
+
+    @NotNull
+    private String zipCode;
+
+    private String phone;
+
+    private String email;
+
+    private String website;
+
+    @NotNull
+    private Boolean active;
 
     @ManyToOne
     Manager manager;
@@ -72,12 +85,52 @@ public class Condominium {
         this.number = number;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public String getZipCode() {
         return zipCode;
     }
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public Boolean getActive() {

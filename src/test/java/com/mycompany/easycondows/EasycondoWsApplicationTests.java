@@ -1,4 +1,4 @@
-package com.mycompany.easycondows.easycondows;
+package com.mycompany.easycondows;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,7 +1,7 @@
-package com.mycompany.easycondows.easycondows.condominium;
+package com.mycompany.easycondows.condominium;
 
-import com.mycompany.easycondows.easycondows.condominium.model.Condominium;
-import com.mycompany.easycondows.easycondows.condominium.service.CondominiumService;
+import com.mycompany.easycondows.condominium.model.Condominium;
+import com.mycompany.easycondows.condominium.service.CondominiumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +15,12 @@ public class CondominiumController {
     @Autowired
     CondominiumService condominiumService;
 
-    @RequestMapping(value = "/condominium", method = RequestMethod.PUT)
+    @RequestMapping(value = "/condominium", method = RequestMethod.POST)
     public ResponseEntity<Condominium> saveCondominium(@RequestBody Condominium condominium) {
 
         Condominium persistedCondominium = condominiumService.saveCondominium(condominium);
 
-        return new ResponseEntity<Condominium>(persistedCondominium, HttpStatus.CREATED);
+        return new ResponseEntity<Condominium>(persistedCondominium, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/condominium/{condominiumId}", method = RequestMethod.GET)
@@ -28,7 +28,7 @@ public class CondominiumController {
 
         Condominium condominium = condominiumService.getCondominiumById(condominiumId);
 
-        return new ResponseEntity<Condominium>(condominium, HttpStatus.CREATED);
+        return new ResponseEntity<Condominium>(condominium, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/condominium", method = RequestMethod.GET)
@@ -36,6 +36,14 @@ public class CondominiumController {
 
         List<Condominium> condominiums = condominiumService.getAllCondominiums();
 
-        return new ResponseEntity<List<Condominium>>(condominiums, HttpStatus.CREATED);
+        return new ResponseEntity<List<Condominium>>(condominiums, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/condominium/{condominiumId}", method = RequestMethod.DELETE)
+    public ResponseEntity<Condominium> removeCondominiumById(@PathVariable Long condominiumId) {
+
+        condominiumService.deleteCondominium(condominiumId);
+
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

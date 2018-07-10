@@ -1,4 +1,4 @@
-package com.mycompany.easycondows.easycondows.condominium.model;
+package com.mycompany.easycondows.condominium.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

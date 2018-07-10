@@ -1,7 +1,7 @@
-package com.mycompany.easycondows.easycondows.condominium.service;
+package com.mycompany.easycondows.condominium.service;
 
-import com.mycompany.easycondows.easycondows.condominium.model.Condominium;
-import com.mycompany.easycondows.easycondows.condominium.repository.CondominiumRepository;
+import com.mycompany.easycondows.condominium.model.Condominium;
+import com.mycompany.easycondows.condominium.repository.CondominiumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class CondominiumService {
         return condominiumRepository.save(condominium);
     }
 
-    public void removeCondominium(Long id) {
+    public void deleteCondominium(Long id) {
         condominiumRepository.delete(id);
     }
 

@@ -1,4 +1,4 @@
-package com.mycompany.easycondows.easycondows;
+package com.mycompany.easycondows;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
