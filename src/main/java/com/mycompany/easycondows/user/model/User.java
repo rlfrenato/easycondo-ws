@@ -2,6 +2,7 @@ package com.mycompany.easycondows.user.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 public class User {
@@ -11,10 +12,19 @@ public class User {
     private Long id;
 
     @NotNull
-    @Column(unique = true)
-    private String username;
+    private String name;
 
+    @NotNull
+    @Column(unique = true)
+    private String email;
+
+    private Date birthday;
+
+    @NotNull
     private String password;
+
+    @NotNull
+    Boolean active;
 
     public Long getId() {
         return id;
@@ -24,12 +34,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -38,5 +48,29 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public Boolean isActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

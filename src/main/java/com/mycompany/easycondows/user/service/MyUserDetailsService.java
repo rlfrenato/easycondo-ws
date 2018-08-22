@@ -1,7 +1,6 @@
 package com.mycompany.easycondows.user.service;
 
 import com.mycompany.easycondows.user.model.User;
-import com.mycompany.easycondows.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,14 +14,14 @@ import java.util.Collection;
 public class MyUserDetailsService implements UserDetailsService{
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        User user = userRepository.findByUsername(username);
+        User user = userService.getUserByEmail(email);
         if (user == null) {
-            throw new UsernameNotFoundException(username);
+            throw new UsernameNotFoundException(email);
         }
 
         return new MyUserPrincipal(user);
@@ -48,7 +47,7 @@ public class MyUserDetailsService implements UserDetailsService{
 
         @Override
         public String getUsername() {
-            return user.getUsername();
+            return user.getEmail();
         }
 
         @Override
