@@ -1,1 +1,1 @@
- insert into user (id, name, email, password, active) values ('1','Renato','test@test.com','test', false);
+ --insert into user (id, name, email, password, active) values ('1','Renato','test@test.com','test', false);

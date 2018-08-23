@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
+@Table(name="`users`") //avoid conflict with reserved PG table user
 public class User {
 
     @Id
@@ -67,6 +68,10 @@ public class User {
     }
 
     public Boolean isActive() {
+        return active;
+    }
+
+    public Boolean getActive() {
         return active;
     }
 
