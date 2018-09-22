@@ -1,6 +1,5 @@
 package com.mycompany.easycondows.user;
 
-import com.mycompany.easycondows.condominium.model.Condominium;
 import com.mycompany.easycondows.user.model.User;
 import com.mycompany.easycondows.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +33,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/{userId}", method = RequestMethod.GET)
-    public ResponseEntity<Condominium> getUserById(@PathVariable Long userId) {
+    public ResponseEntity<User> getUserById(@PathVariable Long userId) {
 
-        userService.getUserById(userId);
+        User user = userService.getUserById(userId);
 
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(user, HttpStatus.OK);
     }
 
 }
